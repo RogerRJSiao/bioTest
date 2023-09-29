@@ -57,14 +57,14 @@ def type_to_name(sort, code):
       case _: name = '(未知)'
   return name
 
-#按鈕監聽取值
-btn1.on_click(btn1_click)
+# #按鈕監聽取值
+# btn1.on_click(btn1_click)
 
-output = widgets.Output()
+# output = widgets.Output()
 
-print('請先選擇物種類別、序列種類\n')
-display(dd1, dd2)
-print()
-display(btn1)
-print()
-display(output)
+# print('請先選擇物種類別、序列種類\n')
+# display(dd1, dd2)
+# print()
+# display(btn1)
+# print()
+# display(output)
