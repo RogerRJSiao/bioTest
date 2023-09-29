@@ -23,7 +23,8 @@ dd2 = widgets.Dropdown(
 #確認取值按鈕
 btn1 = widgets.Button(description="確 認", button_style='success')
 
-species_type = ''
+global sequence_type
+species_type = '123'
 sequence_type = 'ABC'
 
 def btn1_click(b):
