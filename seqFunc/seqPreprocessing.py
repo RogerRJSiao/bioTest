@@ -24,7 +24,7 @@ dd2 = widgets.Dropdown(
 btn1 = widgets.Button(description="確 認", button_style='success')
 
 species_type = ''
-sequence_type = ''
+sequence_type = 'ABC'
 
 def btn1_click(b):
   global species_type, sequence_type
