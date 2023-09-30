@@ -9,7 +9,7 @@ from IPython.display import display #顯示元件
 #選擇物種類別
 dd1 = widgets.Dropdown(
     # options=[('請選擇', 0), ('動物 (推薦)', 10), ('植物', 20), ('真菌', 30), ('細菌', 40), ('病毒', 50)],
-    options=[('請選擇', 0), ('動物 (推薦)', 10),],
+    options=[('請選擇', 0), ('動物 (推薦)', 10), ('病毒', 50), ],
     value=0,
     description='物種類別 ',
 )
