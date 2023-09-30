@@ -2,6 +2,10 @@
 import os
 import shutil
 
+# 在執行 py 檔案時，需要注意以下兩點
+# 1. py 檔案需要放在 Colab Notebook 之下
+# 2. 執行前 %cd /content/drive/MyDrive/Colab Notebooks
+
 #在Colab Notebooks建立存取資料夾
 def mk_folders_in_Colab():
     folderpath = "/content/drive/MyDrive/Colab Notebooks"

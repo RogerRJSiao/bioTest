@@ -30,9 +30,10 @@ def btn1_click(b):
   output.value = f"您目前點選 {species_type} 和 {sequence_type} 。"
   print(output.value)
   if dd1.value == 10 and dd2.value >=20 and dd2.value <= 30:
-    print(f"成功選取 {dd1.value}_{species_type} 和 {dd2.value}_{sequence_type}！")
+    print(f"成功選取 {species_type} (代號：{dd1.value}) 和 {sequence_type} (代號：{dd2.value})！")
   else:
-    print("請重新選取！")
+    print(f"請重新選取！目前不支援 {species_type} 與 {sequence_type} 組合。")
+    showDropdown1()
 
 def type_to_name(sort, code):
   if sort == 'species':
