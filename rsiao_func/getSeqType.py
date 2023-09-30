@@ -23,10 +23,6 @@ dd2 = widgets.Dropdown(
 #確認取值按鈕
 btn1 = widgets.Button(description="確 認", button_style='success')
 
-global sequence_type
-species_type = '123'
-sequence_type = 'ABC'
-
 def btn1_click(b):
   global species_type, sequence_type
   species_type = type_to_name('species', dd1.value)
@@ -63,9 +59,10 @@ btn1.on_click(btn1_click)
 
 output = widgets.Output()
 
-print('請先選擇物種類別、序列種類\n')
-display(dd1, dd2)
-print()
-display(btn1)
-print()
-display(output)
+def showDropdown1():
+  print('請先選擇物種類別、序列種類\n')
+  display(dd1, dd2)
+  print()
+  display(btn1)
+  print()
+  display(output)
