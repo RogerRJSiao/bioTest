@@ -82,3 +82,4 @@ def showTextarea1(show_seq):
   )
   print('請確認檔案上傳的序列\n')
   display(textarea1)
+  print()

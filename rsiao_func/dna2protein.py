@@ -1,9 +1,6 @@
+import re #字串處理 #序列判讀
+
 # 生物序列種類判斷
-
-#字串處理 #序列判讀
-import re
-
-# def adjust_seq(seqType, str_seq):
 def check_seqType(seqType, str_seq):
   temp_seq = ''
   if seqType == 'DNA':
@@ -47,6 +44,7 @@ def check_seqType(seqType, str_seq):
   else:
     str_seq = str_seq
     file_showMsg = '不是 DNA 序列'
+
   return str_seq, file_showMsg
 
 
