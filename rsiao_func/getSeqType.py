@@ -23,10 +23,6 @@ dd2 = widgets.Dropdown(
 #確認取值按鈕
 btn1 = widgets.Button(description="確 認", button_style='success')
 
-#預設show_seq
-# global show_seq
-# show_seq = ''
-
 def btn1_click(b):
   global species_type, sequence_type
   species_type = type_to_name('species', dd1.value)
