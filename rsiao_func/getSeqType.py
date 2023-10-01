@@ -23,6 +23,9 @@ dd2 = widgets.Dropdown(
 #確認取值按鈕
 btn1 = widgets.Button(description="確 認", button_style='success')
 
+#預設show_seq
+global show_seq
+show_seq = ''
 #顯示輸入原始序列 
 textarea1 = widgets.Textarea(
     value = show_seq,
