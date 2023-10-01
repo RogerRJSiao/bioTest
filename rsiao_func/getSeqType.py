@@ -24,15 +24,8 @@ dd2 = widgets.Dropdown(
 btn1 = widgets.Button(description="確 認", button_style='success')
 
 #預設show_seq
-global show_seq
-show_seq = ''
-#顯示輸入原始序列 
-textarea1 = widgets.Textarea(
-    value = show_seq,
-    placeholder = '(您的檔案沒有序列資料)',
-    description = '您上傳序列：',
-    disabled = True
-)
+# global show_seq
+# show_seq = ''
 
 def btn1_click(b):
   global species_type, sequence_type
@@ -80,5 +73,12 @@ def showDropdown1():
   display(output)
 
 def showTextarea1(show_seq):
+  #顯示輸入原始序列 
+  textarea1 = widgets.Textarea(
+      value = show_seq,
+      placeholder = '(您的檔案沒有序列資料)',
+      description = '已上傳序列：',
+      disabled = True
+  )
   print('請確認檔案上傳的序列\n')
   display(textarea1)
