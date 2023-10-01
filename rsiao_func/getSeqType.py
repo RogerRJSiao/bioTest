@@ -34,9 +34,9 @@ def btn1_click(b):
   output.value = f"您目前點選 {species_type} 和 {sequence_type} 。"
   print(output.value)
   if dd1.value == 10 and dd2.value >=20 and dd2.value <= 30:
-    print(f"成功選取 {species_type} (代號：{dd1.value}) 和 {sequence_type} (代號：{dd2.value})！")
+    print(f"成功選取 {species_type} (代號：{dd1.value}) 和 {sequence_type} (代號：{dd2.value})！\n")
   else:
-    print(f"請重新選取！目前不支援 {species_type} 與 {sequence_type} 組合。")
+    print(f"請重新選取！目前不支援 {species_type} 與 {sequence_type} 組合。\n")
     showDropdown1()
 
 def type_to_name(sort, code):
@@ -47,7 +47,7 @@ def type_to_name(sort, code):
       case 30: name = '真菌'
       case 40: name = '細菌'
       case 50: name = '病毒'
-      case _: name = '(未知)'
+      case _: name = '(未選)'
   elif sort == 'sequence':
     match code:
       case 10: name = 'RNA'
@@ -56,7 +56,7 @@ def type_to_name(sort, code):
       case 40: name = 'Proteins'
       case 50: name = 'Glycans'
       case 60: name = 'Lipids'
-      case _: name = '(未知)'
+      case _: name = '(未選)'
   return name
 
 #按鈕監聽取值
@@ -65,12 +65,13 @@ btn1.on_click(btn1_click)
 output = widgets.Output()
 
 def showDropdown1():
-  print('請先選擇物種類別、序列種類\n')
+  print('\n請先選擇物種類別、序列種類\n')
   display(dd1, dd2)
   print()
   display(btn1)
   print()
   display(output)
+  return species_type, sequence_type
 
 def showTextarea1(show_seq):
   #顯示輸入原始序列 
@@ -80,6 +81,6 @@ def showTextarea1(show_seq):
       description = '已上傳序列：',
       disabled = True
   )
-  print('請確認檔案上傳的序列\n')
+  print('\n請確認檔案上傳的序列\n')
   display(textarea1)
   print()
