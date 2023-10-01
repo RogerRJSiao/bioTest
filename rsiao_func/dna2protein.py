@@ -1,12 +1,10 @@
 # 生物序列種類判斷
 
-# 生物序列轉換&顯示
-
-
 #字串處理 #序列判讀
 import re
 
-def adjust_seq(seqType, str_seq):
+# def adjust_seq(seqType, str_seq):
+def check_seqType(seqType, str_seq):
   temp_seq = ''
   if seqType == 'DNA':
     #序列整理
@@ -50,3 +48,6 @@ def adjust_seq(seqType, str_seq):
     str_seq = str_seq
     file_showMsg = '不是 DNA 序列'
   return str_seq, file_showMsg
+
+
+# 生物序列轉換&顯示

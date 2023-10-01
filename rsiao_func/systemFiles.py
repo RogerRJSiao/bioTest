@@ -46,14 +46,13 @@ def upload_txt_file():
         return None
     #取得剛上傳的檔名
     # print(uploaded)
-    file_name = list(uploaded.keys())[0] #檔名&副檔名
-    if file_name.split('.')[1] == 'txt':
-        global file_content, file_seq, file_showMsg
-        file_content = list(uploaded.values())[0] #內容
+    file_name = list(uploaded.keys())[0]  #檔名&副檔名
+    if file_name.split('.')[1] == 'txt': 
+        # global file_content, file_seq, file_showMsg
+        file_content = list(uploaded.values())[0]  #內容
         #b''byte轉成string
         file_content = file_content.decode()
-        file_seq, file_showMsg = adjust_seq(sequence_type, file_content)
-    else:
-        print('\n剛上傳的不是 txt 檔案，請重新上傳！')
+    else: 
+        print('\n您上傳的不是 txt 檔案，請重新上傳！')
         upload_txt_file()
-    return file_name
+    return file_name, file_content
