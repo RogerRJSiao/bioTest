@@ -93,15 +93,15 @@ def mRNA2cDNA(arr_seq):
         last_nt = seqContent.pop() #從[]取出最後一個值
         match last_nt:
           case 'A':
-            cDNA = 'T' + cDNA
+            cDNA += 'T'
           case 'U':
-            cDNA = 'A' + cDNA
+            cDNA += 'A'
           case 'C':
-            cDNA = 'G' + cDNA
+            cDNA += 'G'
           case 'G':
-            cDNA = 'C' + cDNA
+            cDNA += 'C'
           case _:
-            cDNA = '_' + cDNA
+            cDNA += '_'
       arr_seq_success.append([cDNA, len(cDNA), 'cDNA']) #成功
     else:
       arr_seq_error.append(seq) #失敗
@@ -174,17 +174,20 @@ def transcript_translate(arr_seq):
     #標示Coding用的AUG起始
     x_last = -1
     for x in arr_pos_start:
-      space = x - x_last - 3
-      f.write("%s" % (" " * space + "^^^"))  #標示^^^在ATG下方
+      if x == arr_pos_start[0]:
+        f.write("%s" % (" " * x + "^^^"))  #標示^^^在ATG下方
+      else:
+        space = x - x_last - 3
+        f.write("%s" % (" " * space + "^^^"))  #標示^^^在ATG下方
       x_last = x
     f.write("\r\n\r\n")
     #分段顯示Coding序列
     for i in range(len(arr_dna_success)):
       f.write("Coding 序列 %d\r\n" % (i + 1))
-      f.write("    DNA seq: {0} (nt = {1})\r\n" .format(arr_dna_success[i][0], arr_dna_success[i][1]))
+      f.write("    DNA seq: 5' {0} 3' (nt = {1})\r\n" .format(arr_dna_success[i][0], arr_dna_success[i][1]))
       f.write("   {0}{1}\r\n" .format(" " * 10, "|" * len(arr_dna_success[i][0])))
-      f.write("   cDNA seq: {0}\r\n" .format(arr_cdna_success[i][0]))
-      f.write("   mRNA seq: {0} (nt = {1})\r\n" .format(arr_mrna_success[i][0], arr_mrna_success[i][1]))
+      f.write("   cDNA seq: 3' {0} 5' \r\n" .format(arr_cdna_success[i][0][::-1])) #反序顯示
+      f.write("   mRNA seq: 5' {0} 3' (nt = {1})\r\n" .format(arr_mrna_success[i][0], arr_mrna_success[i][1]))
       f.write("   Protein seq: {0} (aa = {1})\r\n\r\n" .format(arr_protein_success[i][0], arr_protein_success[i][1]))
   else:
     f.write("這段序列可能為 non-coding DNA\r\n\r\n")
