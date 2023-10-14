@@ -168,7 +168,7 @@ def transcript_translate(arr_seq):
   #寫入txt檔案
   f = open("myResult.txt","w+")
   #原始序列
-  f.write("讀取序列\r\n\r\n%s\r\n\r\n" % (arr_seq))
+  f.write("讀取序列\r\n\r\n%s\r\n" % (arr_seq))
   #Coding 序列
   if len(arr_pos_start) > 0:
     #標示Coding用的AUG起始
@@ -184,10 +184,10 @@ def transcript_translate(arr_seq):
     #分段顯示Coding序列
     for i in range(len(arr_dna_success)):
       f.write("Coding 序列 %d\r\n" % (i + 1))
-      f.write("    DNA seq: 5' {0} 3' (nt = {1})\r\n" .format(arr_dna_success[i][0], arr_dna_success[i][1]))
-      f.write("   {0}{1}\r\n" .format(" " * 10, "|" * len(arr_dna_success[i][0])))
-      f.write("   cDNA seq: 3' {0} 5' \r\n" .format(arr_cdna_success[i][0][::-1])) #反序顯示
-      f.write("   mRNA seq: 5' {0} 3' (nt = {1})\r\n" .format(arr_mrna_success[i][0], arr_mrna_success[i][1]))
+      f.write("    DNA seq: 5'-{0}-3' (nt = {1})\r\n" .format(arr_dna_success[i][0], arr_dna_success[i][1]))
+      f.write("   {0}{1}\r\n" .format(" " * 13, "|" * len(arr_dna_success[i][0])))
+      f.write("   cDNA seq: 3'-{0}-5' \r\n" .format(arr_cdna_success[i][0][::-1])) #反序顯示
+      f.write("   mRNA seq: 5'-{0}-3' (nt = {1})\r\n" .format(arr_mrna_success[i][0], arr_mrna_success[i][1]))
       f.write("   Protein seq: {0} (aa = {1})\r\n\r\n" .format(arr_protein_success[i][0], arr_protein_success[i][1]))
   else:
     f.write("這段序列可能為 non-coding DNA\r\n\r\n")
