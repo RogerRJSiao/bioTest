@@ -101,7 +101,7 @@ def check_seqType(speCode, seqCode, str_seq):
     temp_seq1 = temp_seq1.replace("T","") #刪除T
     temp_seq1 = temp_seq1.replace("C","") #刪除C
     temp_seq1 = temp_seq1.replace("G","") #刪除G
-    print('temp_seq1',len(temp_seq1))
+    # print('temp_seq1',len(temp_seq1))
     if len(temp_seq1) == 0:
       str_seq = temp_seq
       file_showMsg = '這段序列應該是 DNA'
@@ -113,7 +113,7 @@ def check_seqType(speCode, seqCode, str_seq):
       temp_seq2 = temp_seq2.replace("U","") #刪除U
       temp_seq2 = temp_seq2.replace("C","") #刪除C
       temp_seq2 = temp_seq2.replace("G","") #刪除G
-      print('temp_seq2',len(temp_seq2))
+      # print('temp_seq2',len(temp_seq2))
       if len(temp_seq2) == 0:
         str_seq = temp_seq
         file_showMsg = '這段序列應該是 RNA'
