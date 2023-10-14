@@ -80,3 +80,52 @@ def showTextarea1(show_seq):
   print('\n請確認檔案上傳的序列\n')
   display(textarea1)
   print()
+
+
+
+
+
+# 生物序列種類判斷
+def check_seqType(speCode, seqCode, str_seq):
+  temp_seq, temp_seq1, temp_seq2, temp_seq3 = '', '', '', ''
+
+  if speCode == 10 and (seqCode == 20 or seqCode == 30): #【動物+DNA】或【動物+mRNA】
+    #序列整理
+    str_seq = str_seq.replace(" ","") #刪除空格
+    str_seq = str_seq.replace("\r\n","") #刪除換行
+    str_seq = str_seq.upper() #全變大寫
+    temp_seq = str_seq
+
+    #判斷是否只有ATCG【DNA】
+    temp_seq1 = temp_seq.replace("A","") #刪除A
+    temp_seq1 = temp_seq1.replace("T","") #刪除T
+    temp_seq1 = temp_seq1.replace("C","") #刪除C
+    temp_seq1 = temp_seq1.replace("G","") #刪除G
+    print('temp_seq1',len(temp_seq1))
+    if len(temp_seq1) == 0:
+      str_seq = temp_seq
+      file_showMsg = '這段序列應該是 DNA'
+      print('這段序列應該是 DNA')
+
+    else:
+      #判斷是否只有AUCG【RNA】
+      temp_seq2 = temp_seq.replace("A","") #刪除A
+      temp_seq2 = temp_seq2.replace("U","") #刪除U
+      temp_seq2 = temp_seq2.replace("C","") #刪除C
+      temp_seq2 = temp_seq2.replace("G","") #刪除G
+      print('temp_seq2',len(temp_seq2))
+      if len(temp_seq2) == 0:
+        str_seq = temp_seq
+        file_showMsg = '這段序列應該是 RNA'
+        print('這段序列應該是 RNA')
+
+      else:
+        str_seq = str_seq
+        file_showMsg = '這段序列既不是 DNA，也不是 RNA'
+        print('這段序列既不是 DNA，也不是 RNA')
+
+  else:
+    str_seq = str_seq
+    file_showMsg = "請重新選取【動物+DNA】或【動物+mRNA】任一組合！"
+
+  return str_seq, file_showMsg
