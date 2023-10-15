@@ -1,1 +1,4 @@
-ggtaagtcctctagtacaaacacccccaatattgtgatataattaaaattatattcatattctgttgccagaaaaaacacttttaggctatattagagccatcttctttgaagcgttgtc
+GGG ACA ATG CAT GCC ATG CGC GCT CTG CAG
+CAG GGA GGA CGT GGC TGG GCT CGT GAA GCA 
+TGT GGG GGG TGA GTA GCC CAG GGG CCC TAA
+CCC GGG TTA ACG
