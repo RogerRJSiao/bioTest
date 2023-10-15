@@ -58,12 +58,12 @@ def reviewDNA(seq):
 
 #DNA 轉錄成 mRNA [arr, 批次]
 def DNA2mRNA(arr_seq):
-  temp_arr_seq = arr_seq.upper()
+  temp_arr_seq = arr_seq
   arr_seq_success = []
   arr_seq_error = []
 
   for seq in temp_arr_seq:
-    seqContent, seqLen, seqType = seq[0].strip(), seq[1], seq[2]
+    seqContent, seqLen, seqType = seq[0].strip().upper(), seq[1], seq[2]
     if seqLen % 3 == 0 and seqContent.find('ATG') == 0 and seqType.lower() == 'dna':
       #轉譯
       seqContent = seqContent.replace("T","U").lower()
