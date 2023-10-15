@@ -80,12 +80,12 @@ def DNA2mRNA(arr_seq):
 
 #mRNA 反轉錄成 DNA [arr, 批次]
 def mRNA2cDNA(arr_seq):
-  temp_arr_seq = arr_seq.upper()
+  temp_arr_seq = arr_seq
   arr_seq_success = []
   arr_seq_error = []
 
   for seq in temp_arr_seq:
-    seqContent, seqLen, seqType = seq[0].strip(), seq[1], seq[2]
+    seqContent, seqLen, seqType = seq[0].strip().upper(), seq[1], seq[2]
     if seqLen % 3 == 0 and seqContent.find('AUG') == 0 and seqType.lower() == 'mrna':
       #反轉譯
       cDNA = ''
@@ -117,7 +117,7 @@ def mRNA2cDNA(arr_seq):
 
 #DNA 轉譯成 protein [arr, 批次]
 def DNA2protein(arr_seq):
-  temp_arr_seq = arr_seq.upper()
+  temp_arr_seq = arr_seq
   arr_seq_success = []
   arr_seq_error = []
 
@@ -142,7 +142,7 @@ def DNA2protein(arr_seq):
   }
 
   for seq in temp_arr_seq:
-    seqContent, seqLen, seqType = seq[0].strip(), seq[1], seq[2]
+    seqContent, seqLen, seqType = seq[0].strip().upper(), seq[1], seq[2]
     # seqContent = seqContent.replace("U","T")
     if seqLen % 3 == 0 and seqContent.find('ATG') == 0 and seqType.lower() in ['dna', 'cdna']:
       #轉錄
