@@ -37,12 +37,12 @@ def reviewDNA(seq):
     #存取序列判讀資訊
     if pos_stop % 3 == 0 and pos_stopXYZ != [-1,-1,-1]:
       temp_seq = temp_seq[0:pos_stop+3].lower()
-      print('DNA 修整後(成功)： ',temp_seq)
+      print(f'DNA 修整後(成功，序列第 {pos_start_last} 位)： ',temp_seq)
       arr_seq_success.append([temp_seq, len(temp_seq), seqType])
       arr_pos_start.append(pos_start_last)
     else:
       temp_seq = temp_seq.lower()
-      print('DNA 修整後(失敗)： ',temp_seq)
+      print(f'DNA 修整後(失敗，序列第 {pos_start_last} 位)： ',temp_seq)
       arr_seq_error.append([temp_seq, len(temp_seq), seqType])
 
     #整理序列
