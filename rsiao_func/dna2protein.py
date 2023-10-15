@@ -185,7 +185,7 @@ def transcript_translate(arr_seq):
     for i in range(len(arr_dna_success)):
       f.write("Coding 序列 %d\r\n" % (i + 1))
       f.write("    DNA seq: 5'-{0}-3' (nt = {1})\r\n" .format(arr_dna_success[i][0], arr_dna_success[i][1]))
-      f.write("   {0}{1}\r\n" .format(" " * 13, "|" * len(arr_dna_success[i][0])))
+      # f.write("   {0}{1}\r\n" .format(" " * 13, "|" * len(arr_dna_success[i][0])))
       f.write("   cDNA seq: 3'-{0}-5' \r\n" .format(arr_cdna_success[i][0][::-1])) #反序顯示
       f.write("   mRNA seq: 5'-{0}-3' (nt = {1})\r\n" .format(arr_mrna_success[i][0], arr_mrna_success[i][1]))
       f.write("   Protein seq: {0} (aa = {1})\r\n\r\n" .format(arr_protein_success[i][0], arr_protein_success[i][1]))
