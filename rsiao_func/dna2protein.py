@@ -21,9 +21,10 @@ def reviewDNA(seq):
     # print(temp_seq)
 
     #轉譯終止位置
-    pos_stopX = temp_seq.find('TAG')
-    pos_stopY = temp_seq.find('TAA')
-    pos_stopZ = temp_seq.find('TGA')
+    codons = [temp_seq[i:i+3] for i in range(0, len(temp_seq), 3)]
+    pos_stopX = codons.index("TAG") * 3 if "TAG" in codons else -1
+    pos_stopY = codons.index("TAA") * 3 if "TAA" in codons else -1
+    pos_stopZ = codons.index("TGA") * 3 if "TGA" in codons else -1
     pos_stopXYZ = [pos_stopX, pos_stopY, pos_stopZ]
     # print(pos_stopXYZ)
     pos_stop = list(filter(lambda a: a >= 0 and a % 3 == 0, pos_stopXYZ)) #篩選非-1且位值是3的倍數 #filter結果需有list() #lambda
@@ -33,7 +34,7 @@ def reviewDNA(seq):
       pos_stop = min(pos_stop) #最小值
 
     pos_start_last = pos_start_last + pos_start + 1
-    print(pos_start_last)
+    # print(pos_start_last)
     #存取序列判讀資訊
     if pos_stop % 3 == 0 and pos_stopXYZ != [-1,-1,-1]:
       temp_seq = temp_seq[0:pos_stop+3].lower()
