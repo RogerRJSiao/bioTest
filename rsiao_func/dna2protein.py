@@ -6,7 +6,7 @@ from google.colab import files
 def reviewDNA(seq):
   seqType = 'DNA'
   ori_seq = seq
-  seq = seq.replace("U","T") #U變更為T
+  seq = seq.upper().replace("U","T") #U變更為T
   arr_seq_success = [] #定序合乎3nts且有起始、終止condon
   arr_seq_error = [] #定序不合乎3nts或無起始、終止condon
   arr_pos_start = []
@@ -36,12 +36,12 @@ def reviewDNA(seq):
     print(pos_start_last)
     #存取序列判讀資訊
     if pos_stop % 3 == 0 and pos_stopXYZ != [-1,-1,-1]:
-      temp_seq = temp_seq[0:pos_stop+3]
+      temp_seq = temp_seq[0:pos_stop+3].lower()
       print('DNA 修整後(成功)： ',temp_seq)
       arr_seq_success.append([temp_seq, len(temp_seq), seqType])
       arr_pos_start.append(pos_start_last)
     else:
-      temp_seq = temp_seq
+      temp_seq = temp_seq.lower()
       print('DNA 修整後(失敗)： ',temp_seq)
       arr_seq_error.append([temp_seq, len(temp_seq), seqType])
 
@@ -58,7 +58,7 @@ def reviewDNA(seq):
 
 #DNA 轉錄成 mRNA [arr, 批次]
 def DNA2mRNA(arr_seq):
-  temp_arr_seq = arr_seq
+  temp_arr_seq = arr_seq.upper()
   arr_seq_success = []
   arr_seq_error = []
 
@@ -66,9 +66,10 @@ def DNA2mRNA(arr_seq):
     seqContent, seqLen, seqType = seq[0].strip(), seq[1], seq[2]
     if seqLen % 3 == 0 and seqContent.find('ATG') == 0 and seqType.lower() == 'dna':
       #轉譯
-      seqContent = seqContent.replace("T","U")
+      seqContent = seqContent.replace("T","U").lower()
       arr_seq_success.append([seqContent, len(seqContent), 'mRNA']) #成功
     else:
+      seq = seq.lower()
       arr_seq_error.append(seq)
   
   print('DNA2mRNA success:', arr_seq_success) #成功
@@ -79,7 +80,7 @@ def DNA2mRNA(arr_seq):
 
 #mRNA 反轉錄成 DNA [arr, 批次]
 def mRNA2cDNA(arr_seq):
-  temp_arr_seq = arr_seq
+  temp_arr_seq = arr_seq.upper()
   arr_seq_success = []
   arr_seq_error = []
 
@@ -102,8 +103,10 @@ def mRNA2cDNA(arr_seq):
             cDNA += 'C'
           case _:
             cDNA += '_'
+      cDNA = cDNA.lower()
       arr_seq_success.append([cDNA, len(cDNA), 'cDNA']) #成功
     else:
+      seq = seq.lower()
       arr_seq_error.append(seq) #失敗
 
   print('mRNA2cDNA success:', arr_seq_success) #成功
@@ -114,7 +117,7 @@ def mRNA2cDNA(arr_seq):
 
 #DNA 轉譯成 protein [arr, 批次]
 def DNA2protein(arr_seq):
-  temp_arr_seq = arr_seq
+  temp_arr_seq = arr_seq.upper()
   arr_seq_success = []
   arr_seq_error = []
 
