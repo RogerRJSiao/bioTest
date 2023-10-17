@@ -1,0 +1,24 @@
+讀取序列
+
+GGGACAATGCATGCCATGCGCGCTCTGCAGCAGGGAGGACGTGGCTGGGCTCGTGAAGCATGTGGGGGGTGAGTAGCCCAGGGGCCCTAACCCGGGTTAACG
+      ^^^ ^^^  ^^^
+
+Coding 序列 1
+    DNA seq: 5'-atgcatgccatgcgcgctctgcagcagggaggacgtggctgggctcgtgaagcatgtggggggtga-3' (nt = 66)
+   cDNA seq: 3'-tacgtacggtacgcgcgagacgtcgtccctcctgcaccgacccgagcacttcgtacaccccccact-5' 
+   mRNA seq: 5'-augcaugccaugcgcgcucugcagcagggaggacguggcugggcucgugaagcaugugggggguga-3' (nt = 66)
+   Protein seq: MHAMRALQQGGRGWAREACGG_ (aa = 21)
+
+Coding 序列 2
+    DNA seq: 5'-atgccatgcgcgctctgcagcagggaggacgtggctgggctcgtgaagcatgtggggggtgagtag-3' (nt = 66)
+   cDNA seq: 3'-tacggtacgcgcgagacgtcgtccctcctgcaccgacccgagcacttcgtacaccccccactcatc-5' 
+   mRNA seq: 5'-augccaugcgcgcucugcagcagggaggacguggcugggcucgugaagcauguggggggugaguag-3' (nt = 66)
+   Protein seq: MPCALCSREDVAGLVKHVGGE_ (aa = 21)
+
+Coding 序列 3
+    DNA seq: 5'-atgcgcgctctgcagcagggaggacgtggctgggctcgtgaagcatgtggggggtga-3' (nt = 57)
+   cDNA seq: 3'-tacgcgcgagacgtcgtccctcctgcaccgacccgagcacttcgtacaccccccact-5' 
+   mRNA seq: 5'-augcgcgcucugcagcagggaggacguggcugggcucgugaagcaugugggggguga-3' (nt = 57)
+   Protein seq: MRALQQGGRGWAREACGG_ (aa = 18)
+
+ = = = 以下空白 = = = 
